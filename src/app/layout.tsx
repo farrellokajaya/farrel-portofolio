@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+
+import { Footer } from "@/components/layout/footer";
+import { Navbar } from "@/components/layout/navbar";
+import { ThemeProvider } from "@/components/providers/theme-provider";
+import { BackToTop } from "@/components/ui/back-to-top";
 
 import "./globals.css";
-
-const geist = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: {
@@ -22,10 +20,34 @@ type RootLayoutProps = Readonly<{
   children: React.ReactNode;
 }>;
 
-export default function RootLayout({ children }: RootLayoutProps) {
+export default function RootLayout({
+  children,
+}: RootLayoutProps) {
   return (
-    <html lang="en">
-      <body className={`${geist.variable} antialiased`}>{children}</body>
+    <html
+      id="top"
+      lang="en"
+      suppressHydrationWarning
+    >
+      <body className="min-h-screen bg-background font-sans text-foreground antialiased">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="flex min-h-screen flex-col">
+            <Navbar />
+
+            <div className="flex-1">
+              {children}
+            </div>
+
+            <Footer />
+            <BackToTop />
+          </div>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

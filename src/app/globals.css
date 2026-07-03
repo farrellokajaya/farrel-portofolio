@@ -1,21 +1,76 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
+  color-scheme: light;
+
   --background: #ffffff;
   --foreground: #171717;
   --muted-foreground: #5f6368;
+
   --surface: #f7f7f8;
-  --border: #e5e7eb;
+  --surface-hover: #eeeeef;
+
+  --border: #e4e4e7;
+
   --accent: #2563eb;
+  --accent-hover: #1d4ed8;
   --accent-foreground: #ffffff;
+
+  --font-sans-stack:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Arial,
+    Helvetica,
+    sans-serif;
+}
+
+.dark {
+  color-scheme: dark;
+
+  --background: #0a0a0a;
+  --foreground: #f5f5f5;
+  --muted-foreground: #a1a1aa;
+
+  --surface: #18181b;
+  --surface-hover: #27272a;
+
+  --border: #2f2f33;
+
+  --accent: #60a5fa;
+  --accent-hover: #93c5fd;
+  --accent-foreground: #0a0a0a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+
+  --color-border: var(--border);
+
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --font-sans: var(--font-sans-stack);
 }
 
 * {
   box-sizing: border-box;
+  border-color: var(--border);
 }
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  background: var(--background);
 }
 
 body {
@@ -23,11 +78,7 @@ body {
   margin: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family:
-    var(--font-geist-sans),
-    Arial,
-    Helvetica,
-    sans-serif;
+  font-family: var(--font-sans-stack);
   text-rendering: optimizeLegibility;
 }
 
@@ -48,6 +99,11 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
+button:not(:disabled),
+a[href] {
+  cursor: pointer;
+}
+
 img,
 svg {
   display: block;
@@ -55,8 +111,32 @@ svg {
 }
 
 ::selection {
-  color: #ffffff;
-  background: #2563eb;
+  color: var(--accent-foreground);
+  background: var(--accent);
+}
+
+:focus-visible {
+  outline-color: var(--accent);
+}
+
+.theme-icon-light {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-icon-dark {
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.dark .theme-icon-light {
+  display: none;
+}
+
+.dark .theme-icon-dark {
+  display: inline-flex;
 }
 
 @media (prefers-reduced-motion: reduce) {
