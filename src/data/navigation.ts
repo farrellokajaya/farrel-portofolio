@@ -8,13 +8,13 @@ export const navigationItems: NavigationItem[] = [
     label: "Home",
     href: "/",
   },
-  {
-    label: "About",
-    href: "/about",
-  },
+{
+  label: "About",
+  href: "/#about",
+},
   {
     label: "Projects",
-    href: "/projects",
+    href: "/#projects",
   },
   {
     label: "Experience",
