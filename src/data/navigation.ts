@@ -18,11 +18,11 @@ export const navigationItems: NavigationItem[] = [
   },
   {
     label: "Experience",
-    href: "/experience",
+    href: "/#experience",
   },
   {
     label: "Skills",
-    href: "/skills",
+    href: "/#skills",
   },
   {
     label: "Contact",
