@@ -16,7 +16,7 @@ export const featuredProjects: Project[] = [
     title: "Soundify",
     category: "Full-stack web application",
     year: "2026",
-    status: "In development",
+    status: "Completed",
     summary:
       "A Spotify-inspired music application built with the MERN stack. The project is being developed in structured milestones, including authentication, music management, and playback features.",
     technologies: ["MongoDB", "Express.js", "React", "Node.js"],
@@ -45,4 +45,38 @@ export const featuredProjects: Project[] = [
     liveUrl:
       "https://farrellokajaya.github.io/CodingCamp-22June26-farrellokajaya/",
   },
+  {
+    title: "YouTube Sentiment Analysis Dashboard",
+    category: "Machine learning and data analysis",
+    year: "2026",
+    status: "Completed",
+    summary:
+      "An interactive dashboard for analyzing sentiment in YouTube comments. It includes dataset exploration, sentiment filtering, text visualization, model evaluation, and real-time sentiment prediction.",
+    technologies: [
+      "Python",
+      "Streamlit",
+      "Pandas",
+      "Scikit-learn",
+      "TF-IDF",
+      "Linear SVM"],
+    githubUrl:
+      "https://github.com/farrellokajaya/Youtube-Sentiment-Analysis-Dashboard",
+  },
+  {
+  title: "CareerFlow",
+  category: "Full-stack web application",
+  year: "2026",
+  status: "In development",
+  summary:
+    "A job application tracking platform for managing companies, job applications, application stages, and recruitment progress through a structured dashboard.",
+  technologies: [
+    "Next.js",
+    "TypeScript",
+    "PostgreSQL",
+    "Prisma",
+    "Auth.js",
+    "Tailwind CSS"],
+  githubUrl:
+    "https://github.com/farrellokajaya/careerflow",
+  }
 ];

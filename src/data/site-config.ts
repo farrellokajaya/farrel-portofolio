@@ -10,16 +10,15 @@ export const siteConfig = {
   description:
     "Portfolio of Farrel Lokajaya, a fresh graduate in Informatics Engineering with interests in full-stack web development, backend development, machine learning, natural language processing, and data analysis.",
 
-  // Add a public contact email later.
-  email: "",
+  email: "farrellokajaya1@gmail.com",
 
   githubUrl: "https://github.com/farrellokajaya",
   linkedinUrl: "https://www.linkedin.com/in/farrellokajaya",
 
-  // Add the CV file to:
+  instagramHandle: "farrellokajayaa",
+
   // public/documents/cv-farrel-lokajaya.pdf
-  //
-  // Then change this value to:
+  
   // "/documents/cv-farrel-lokajaya.pdf"
   cvUrl: "",
 } as const;

@@ -8,10 +8,10 @@ export const navigationItems: NavigationItem[] = [
     label: "Home",
     href: "/",
   },
-{
-  label: "About",
-  href: "/#about",
-},
+  {
+    label: "About",
+    href: "/#about",
+  },
   {
     label: "Projects",
     href: "/#projects",
@@ -19,6 +19,10 @@ export const navigationItems: NavigationItem[] = [
   {
     label: "Experience",
     href: "/#experience",
+  },
+  {
+    label: "Training",
+    href: "/#training",
   },
   {
     label: "Skills",

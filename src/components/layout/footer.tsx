@@ -1,5 +1,11 @@
 import Link from "next/link";
-import { FaGithub, FaLinkedinIn } from "react-icons/fa6";
+import {
+  FaGithub,
+  FaInstagram,
+  FaLinkedinIn,
+} from "react-icons/fa6";
+
+import { siteConfig } from "@/data/site-config"; 
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -22,7 +28,7 @@ export function Footer() {
 
         <div className="flex items-center gap-5 text-sm text-neutral-500 dark:text-neutral-400">
           <a
-            href="https://github.com/farrellokajaya"
+            href={siteConfig.githubUrl}
             target="_blank"
             rel="noreferrer"
             aria-label="GitHub"
@@ -32,7 +38,7 @@ export function Footer() {
           </a>
 
           <a
-            href="https://www.linkedin.com/in/farrellokajaya"
+            href={siteConfig.linkedinUrl}
             target="_blank"
             rel="noreferrer"
             aria-label="LinkedIn"
@@ -42,7 +48,17 @@ export function Footer() {
           </a>
 
           <a
-            href="mailto:farrellokajaya1@gmail.com"
+            href={`https://www.instagram.com/${siteConfig.instagramHandle}`}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Instagram"
+            className="transition-colors hover:text-neutral-950 dark:hover:text-white"
+          >
+            <FaInstagram aria-hidden="true" className="h-5 w-5" />
+          </a>
+
+          <a
+            href={`mailto:${siteConfig.email}`}
             className="transition-colors hover:text-neutral-950 dark:hover:text-white"
           >
             Email

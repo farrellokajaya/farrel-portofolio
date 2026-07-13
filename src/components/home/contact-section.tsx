@@ -1,24 +1,36 @@
 import { ArrowUpRight, Mail, MapPin } from "lucide-react";
-import { FaGithub, FaLinkedinIn } from "react-icons/fa6";
+import {
+  FaGithub,
+  FaInstagram,
+  FaLinkedinIn,
+} from "react-icons/fa6";
+
+import { siteConfig } from "@/data/site-config";  
 
 const contactLinks = [
   {
     label: "Email",
-    value: "farrellokajaya1@gmail.com",
-    href: "mailto:farrellokajaya1@gmail.com",
+    value: siteConfig.email,
+    href: `mailto:${siteConfig.email}`,
     icon: Mail,
   },
   {
     label: "LinkedIn",
     value: "linkedin.com/in/farrellokajaya",
-    href: "https://www.linkedin.com/in/farrellokajaya",
+    href: siteConfig.linkedinUrl,
     icon: FaLinkedinIn,
   },
   {
     label: "GitHub",
     value: "github.com/farrellokajaya",
-    href: "https://github.com/farrellokajaya",
+    href: siteConfig.githubUrl,
     icon: FaGithub,
+  },
+  {
+    label: "Instagram",
+    value: `instagram.com/${siteConfig.instagramHandle}`,
+    href: `https://www.instagram.com/${siteConfig.instagramHandle}`,
+    icon: FaInstagram,
   },
 ];
 
@@ -47,7 +59,7 @@ export function ContactSection() {
             </p>
 
             <a
-              href="mailto:farrellokajaya1@gmail.com"
+              href={`mailto:${siteConfig.email}`}
               className="mt-8 inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-neutral-300 px-5 py-3 text-sm font-medium text-neutral-900 transition-colors hover:border-neutral-400 hover:bg-neutral-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-500 focus-visible:ring-offset-2 dark:border-neutral-700 dark:text-white dark:hover:border-neutral-600 dark:hover:bg-neutral-900 dark:focus-visible:ring-offset-neutral-950"
             >
               <Mail aria-hidden="true" className="h-4 w-4" />

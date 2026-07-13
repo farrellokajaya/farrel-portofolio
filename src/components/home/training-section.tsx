@@ -1,0 +1,72 @@
+import { ArrowUpRight } from "lucide-react";
+
+import { trainingItems } from "@/data/training";
+
+export function TrainingSection() {
+  return (
+    <section
+      id="training"
+      className="scroll-mt-24 border-b border-neutral-200 bg-white text-neutral-950 dark:border-neutral-800 dark:bg-neutral-950 dark:text-white"
+    >
+      <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24 lg:px-10">
+        <div className="max-w-2xl">
+          <p className="text-sm font-medium uppercase tracking-[0.16em] text-neutral-500 dark:text-neutral-400">
+            Training
+          </p>
+
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
+            Courses and professional development
+          </h2>
+
+          <p className="mt-4 leading-7 text-neutral-600 dark:text-neutral-400">
+            Short courses and focused learning programs that support my skills
+            in software development, data, and machine learning.
+          </p>
+        </div>
+
+        <div className="mt-12 border-t border-neutral-200 dark:border-neutral-800">
+          {trainingItems.map((training) => (
+            <article
+              key={`${training.provider}-${training.title}`}
+              className="grid gap-6 border-b border-neutral-200 py-8 dark:border-neutral-800 sm:grid-cols-[180px_minmax(0,1fr)] sm:gap-10 sm:py-10"
+            >
+              <div className="text-sm leading-6 text-neutral-500 dark:text-neutral-400">
+                <p>{training.provider}</p>
+                <p className="mt-1">{training.year}</p>
+              </div>
+
+              <div className="max-w-3xl">
+                <h3 className="text-xl font-semibold tracking-tight sm:text-2xl">
+                  {training.title}
+                </h3>
+
+                <p className="mt-4 leading-7 text-neutral-600 dark:text-neutral-400">
+                  {training.summary}
+                </p>
+
+                <p className="mt-4 text-sm leading-6 text-neutral-500 dark:text-neutral-500">
+                  {training.topics.join(" · ")}
+                </p>
+
+                {training.credentialUrl ? (
+                  <a
+                    href={training.credentialUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-neutral-700 transition-colors hover:text-neutral-950 dark:text-neutral-300 dark:hover:text-white"
+                  >
+                    View credential
+                    <ArrowUpRight
+                      aria-hidden="true"
+                      className="h-4 w-4"
+                    />
+                  </a>
+                ) : null}
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
