@@ -16,7 +16,7 @@ export function HeroSection() {
           {/* Work availability */}
           <div className="mb-8 flex items-center gap-2 text-sm text-neutral-600 dark:text-neutral-400">
             <span className="h-2 w-2 rounded-full bg-emerald-500" />
-            <span>Open to junior web development opportunities</span>
+            <span>Open to Junior Web Development or Junior Data Sciene opportunities</span>
           </div>
 
           {/* Introduction */}
