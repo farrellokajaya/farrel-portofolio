@@ -29,12 +29,11 @@ export function HeroSection() {
           </h1>
 
           <h2 className="mt-4 text-xl font-medium text-neutral-700 dark:text-neutral-300 sm:text-2xl">
-            Fresh Graduate · Web Developer
+            Fresh Graduate · Web Developer ·  Data Sciene
           </h2>
 
           <p className="mt-6 max-w-2xl text-base leading-8 text-neutral-600 dark:text-neutral-400 sm:text-lg">
-            I build clear and useful web applications, with an interest in
-            full-stack development, data analysis, and machine learning.
+            I build modern web applications and data-driven solutions designed to solve real-world problems.
           </p>
 
           {/* Actions */}
