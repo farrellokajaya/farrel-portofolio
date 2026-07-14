@@ -19,8 +19,9 @@ export function TrainingSection() {
           </h2>
 
           <p className="mt-4 leading-7 text-neutral-600 dark:text-neutral-400">
-            Short courses and focused learning programs that support my skills
-            in software development, data, and machine learning.
+            Courses and focused learning programs that strengthen my skills in
+            software development, data, artificial intelligence, and
+            professional readiness.
           </p>
         </div>
 
@@ -31,8 +32,13 @@ export function TrainingSection() {
               className="grid gap-6 border-b border-neutral-200 py-8 dark:border-neutral-800 sm:grid-cols-[180px_minmax(0,1fr)] sm:gap-10 sm:py-10"
             >
               <div className="text-sm leading-6 text-neutral-500 dark:text-neutral-400">
-                <p>{training.provider}</p>
-                <p className="mt-1">{training.year}</p>
+                <p className="font-medium text-neutral-700 dark:text-neutral-300">
+                  {training.provider}
+                </p>
+                <p className="mt-1">{training.period}</p>
+                {training.duration ? (
+                  <p className="mt-1">{training.duration}</p>
+                ) : null}
               </div>
 
               <div className="max-w-3xl">
@@ -56,10 +62,7 @@ export function TrainingSection() {
                     className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-neutral-700 transition-colors hover:text-neutral-950 dark:text-neutral-300 dark:hover:text-white"
                   >
                     View credential
-                    <ArrowUpRight
-                      aria-hidden="true"
-                      className="h-4 w-4"
-                    />
+                    <ArrowUpRight aria-hidden="true" className="h-4 w-4" />
                   </a>
                 ) : null}
               </div>

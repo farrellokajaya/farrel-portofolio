@@ -1,38 +1,24 @@
 export type TrainingItem = {
   title: string;
   provider: string;
-  year: string;
+  period: string;
   summary: string;
   topics: string[];
+  duration?: string;
   credentialUrl?: string;
 };
 
 export const trainingItems: TrainingItem[] = [
   {
-    title: "Mini Course Title 1",
-    provider: "Course Provider",
-    year: "20XX",
+    title: "Intro to Software Engineering",
+    provider: "RevoU",
+    period: "Jun 2026",
     summary:
-      "Add a short description of what you learned and how the course supports your professional development.",
-    topics: ["Topic 1", "Topic 2", "Topic 3"],
-    credentialUrl: "",
-  },
-  {
-    title: "Mini Course Title 2",
-    provider: "Course Provider",
-    year: "20XX",
-    summary:
-      "Add a short description of the course, the main material covered, and the practical skills you developed.",
-    topics: ["Topic 1", "Topic 2", "Topic 3"],
-    credentialUrl: "",
-  },
-  {
-    title: "Mini Course Title 3",
-    provider: "Course Provider",
-    year: "20XX",
-    summary:
-      "Add a short description of the course and explain its relevance to web development, data, or machine learning.",
-    topics: ["Topic 1", "Topic 2", "Topic 3"],
-    credentialUrl: "",
+      "Completed an online introduction to software engineering covering the software development process, programming fundamentals, and the responsibilities of a software engineer.",
+    topics: [
+      "Software engineering fundamentals",
+      "Development lifecycle",
+      "Programming basics",
+    ],
   },
 ];
