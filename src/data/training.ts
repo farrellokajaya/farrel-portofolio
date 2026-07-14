@@ -21,4 +21,12 @@ export const trainingItems: TrainingItem[] = [
       "Programming basics",
     ],
   },
+  {
+    title: "AI for Work & Career Readiness with Google AI Products",
+    provider: "HACKTIV8",
+    period: "May – Jun 2026",
+    summary:
+      "Learned how generative AI and Google AI products can support career preparation and everyday productivity, including CV development, interview preparation, and professional planning.",
+    topics: ["Generative AI", "Google AI tools", "Career readiness"],
+  },
 ];
