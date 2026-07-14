@@ -18,7 +18,7 @@ export const featuredProjects: Project[] = [
     year: "2026",
     status: "Completed",
     summary:
-      "A Spotify-inspired music application built with the MERN stack. The project is being developed in structured milestones, including authentication, music management, and playback features.",
+      "A Spotify-inspired music application built with the MERN stack, featuring authentication, admin-managed music content, media uploads, playback, favorites, playlists, queue management, and listening history.",
     technologies: ["MongoDB", "Express.js", "React", "Node.js"],
     githubUrl: "https://github.com/farrellokajaya/Spotify_MERN",
   },

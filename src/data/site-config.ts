@@ -17,8 +17,5 @@ export const siteConfig = {
 
   instagramHandle: "farrellokajayaa",
 
-  // public/documents/cv-farrel-lokajaya.pdf
-  
-  // "/documents/cv-farrel-lokajaya.pdf"
-  cvUrl: "",
+   cvUrl: "/documents/Farrel-Lokajaya-CV.pdf",
 } as const;

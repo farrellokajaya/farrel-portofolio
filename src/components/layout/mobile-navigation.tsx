@@ -143,35 +143,18 @@ export function MobileNavigation() {
             </nav>
 
             <div className="shrink-0 border-t border-border p-5">
-              {siteConfig.cvUrl ? (
-                <a
-                  href={siteConfig.cvUrl}
-                  download
-                  className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-accent px-5 text-sm font-semibold text-accent-foreground transition-colors hover:bg-accent-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-                >
-                  <Download
-                    className="size-4"
-                    aria-hidden="true"
-                  />
-                  Download CV
-                </a>
-              ) : (
-                <span
-                  aria-disabled="true"
-                  title="CV will be added later"
-                  className="inline-flex min-h-12 w-full cursor-not-allowed items-center justify-center gap-2 rounded-xl border border-border bg-surface px-5 text-sm font-semibold text-muted-foreground opacity-60"
-                >
-                  <Download
-                    className="size-4"
-                    aria-hidden="true"
-                  />
-                  Download CV
-                </span>
-              )}
-
-              <p className="mt-3 text-center text-xs text-muted-foreground">
-                CV file will be added later.
-              </p>
+              <a
+                href={siteConfig.cvUrl}
+                download
+                onClick={closeNavigation}
+                className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-accent px-5 text-sm font-semibold text-accent-foreground transition-colors hover:bg-accent-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+              >
+                <Download
+                  className="size-4"
+                  aria-hidden="true"
+                />
+                Download CV
+              </a>
             </div>
           </div>
         </div>

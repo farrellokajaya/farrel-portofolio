@@ -42,31 +42,17 @@ export function Navbar() {
           <div className="flex shrink-0 items-center gap-2">
             <ThemeToggle />
 
-            {siteConfig.cvUrl ? (
-              <a
-                href={siteConfig.cvUrl}
-                download
-                className="hidden min-h-10 items-center justify-center gap-2 rounded-full bg-accent px-4 text-sm font-semibold text-accent-foreground transition-colors hover:bg-accent-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:inline-flex"
-              >
-                <Download
-                  className="size-4"
-                  aria-hidden="true"
-                />
-                Download CV
-              </a>
-            ) : (
-              <span
-                aria-disabled="true"
-                title="CV will be added later"
-                className="hidden min-h-10 cursor-not-allowed items-center justify-center gap-2 rounded-full border border-border bg-surface px-4 text-sm font-semibold text-muted-foreground opacity-60 sm:inline-flex"
-              >
-                <Download
-                  className="size-4"
-                  aria-hidden="true"
-                />
-                Download CV
-              </span>
-            )}
+            <a
+              href={siteConfig.cvUrl}
+              download
+              className="hidden min-h-10 items-center justify-center gap-2 rounded-full bg-accent px-4 text-sm font-semibold text-accent-foreground transition-colors hover:bg-accent-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:inline-flex"
+            >
+              <Download
+                className="size-4"
+                aria-hidden="true"
+              />
+              Download CV
+            </a>
 
             <MobileNavigation />
           </div>
