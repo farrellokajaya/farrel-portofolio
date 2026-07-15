@@ -35,6 +35,8 @@ export const featuredProjects: Project[] = [
     technologies: ["Laravel", "PHP", "MariaDB", "Blade", "Stripe"],
     githubUrl: 
     "https://github.com/farrellokajaya/Laravel_Ecommerce",
+    liveUrl: 
+    "https://laravel-ecommerce-cqfh.onrender.com/",
   },
   {
     title: "Expense & Budget Visualizer",
