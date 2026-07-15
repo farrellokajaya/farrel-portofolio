@@ -20,7 +20,10 @@ export const featuredProjects: Project[] = [
     summary:
       "A Spotify-inspired music application built with the MERN stack, featuring authentication, admin-managed music content, media uploads, playback, favorites, playlists, queue management, and listening history.",
     technologies: ["MongoDB", "Express.js", "React", "Node.js"],
-    githubUrl: "https://github.com/farrellokajaya/Spotify_MERN",
+    githubUrl: 
+    "https://github.com/farrellokajaya/Spotify_MERN",
+    liveUrl: 
+    "https://soundify-frontend.vercel.app/",
   },
   {
     title: "Laravel Ecommerce",
@@ -30,7 +33,8 @@ export const featuredProjects: Project[] = [
     summary:
       "An ecommerce application with separate user and admin workflows, product management, cart and checkout, Stripe payment, order tracking, and invoice support.",
     technologies: ["Laravel", "PHP", "MariaDB", "Blade", "Stripe"],
-    githubUrl: "https://github.com/farrellokajaya/Laravel_Ecommerce",
+    githubUrl: 
+    "https://github.com/farrellokajaya/Laravel_Ecommerce",
   },
   {
     title: "Expense & Budget Visualizer",
