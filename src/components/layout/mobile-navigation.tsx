@@ -2,16 +2,15 @@
 
 import { useEffect, useId, useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { Download, Menu, X } from "lucide-react";
 
 import { navigationItems } from "@/data/navigation";
 import { siteConfig } from "@/data/site-config";
-import { isActivePath } from "@/utils/is-active-path";
+import { useActiveSection } from "@/hooks/use-active-section";
 
 export function MobileNavigation() {
-  const pathname = usePathname();
   const navigationId = useId();
+  const activeSection = useActiveSection();
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -20,7 +19,8 @@ export function MobileNavigation() {
       return;
     }
 
-    const previousOverflow = document.body.style.overflow;
+    const previousOverflow =
+      document.body.style.overflow;
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -29,11 +29,19 @@ export function MobileNavigation() {
     };
 
     document.body.style.overflow = "hidden";
-    document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener(
+      "keydown",
+      handleKeyDown,
+    );
 
     return () => {
-      document.body.style.overflow = previousOverflow;
-      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow =
+        previousOverflow;
+
+      document.removeEventListener(
+        "keydown",
+        handleKeyDown,
+      );
     };
   }, [isOpen]);
 
@@ -106,18 +114,19 @@ export function MobileNavigation() {
             >
               <ul className="space-y-2">
                 {navigationItems.map((item) => {
-                  const isActive = isActivePath(
-                    pathname,
-                    item.href,
-                  );
+                  const isActive =
+                    activeSection ===
+                    item.sectionId;
 
                   return (
-                    <li key={item.href}>
+                    <li key={item.sectionId}>
                       <Link
                         href={item.href}
                         onClick={closeNavigation}
                         aria-current={
-                          isActive ? "page" : undefined
+                          isActive
+                            ? "location"
+                            : undefined
                         }
                         className={[
                           "flex min-h-12 items-center justify-between rounded-xl px-4 text-base font-medium transition-colors",

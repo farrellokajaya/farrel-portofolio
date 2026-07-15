@@ -18,7 +18,7 @@ export function Navbar() {
       <RootContainer>
         <div className="relative z-10 flex h-16 items-center justify-between gap-4">
           <Link
-            href="/"
+            href="/#home"
             aria-label="Farrel Lokajaya homepage"
             className="group inline-flex min-w-0 items-center gap-3 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
           >
@@ -45,13 +45,13 @@ export function Navbar() {
             <a
               href={siteConfig.cvUrl}
               download
-              className="hidden min-h-10 items-center justify-center gap-2 rounded-full bg-accent px-4 text-sm font-semibold text-accent-foreground transition-colors hover:bg-accent-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:inline-flex"
+              className="hidden min-h-10 items-center justify-center gap-2 whitespace-nowrap rounded-full bg-neutral-900 px-4 text-sm font-semibold text-white transition-colors hover:bg-neutral-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 sm:inline-flex dark:bg-white dark:text-neutral-950 dark:hover:bg-neutral-200"
             >
               <Download
-                className="size-4"
+                className="size-4 shrink-0"
                 aria-hidden="true"
               />
-              Download CV
+              <span>Download CV</span>
             </a>
 
             <MobileNavigation />

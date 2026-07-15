@@ -1,13 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 
 import { navigationItems } from "@/data/navigation";
-import { isActivePath } from "@/utils/is-active-path";
+import { useActiveSection } from "@/hooks/use-active-section";
 
 export function DesktopNavigation() {
-  const pathname = usePathname();
+  const activeSection = useActiveSection();
 
   return (
     <nav
@@ -16,17 +15,15 @@ export function DesktopNavigation() {
     >
       <ul className="flex items-center gap-1">
         {navigationItems.map((item) => {
-          const isActive = isActivePath(
-            pathname,
-            item.href,
-          );
+          const isActive =
+            activeSection === item.sectionId;
 
           return (
-            <li key={item.href}>
+            <li key={item.sectionId}>
               <Link
                 href={item.href}
                 aria-current={
-                  isActive ? "page" : undefined
+                  isActive ? "location" : undefined
                 }
                 className={[
                   "inline-flex min-h-10 items-center rounded-full px-4 text-sm font-medium transition-colors",
