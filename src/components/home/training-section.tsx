@@ -14,7 +14,7 @@ export function TrainingSection() {
             Training
           </p>
 
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
+          <h2 className="mt-3 break-words text-3xl font-semibold tracking-tight [overflow-wrap:anywhere] sm:text-4xl">
             Courses and professional development
           </h2>
 
@@ -29,28 +29,34 @@ export function TrainingSection() {
           {trainingItems.map((training) => (
             <article
               key={`${training.provider}-${training.title}`}
-              className="grid gap-6 border-b border-neutral-200 py-8 dark:border-neutral-800 sm:grid-cols-[180px_minmax(0,1fr)] sm:gap-10 sm:py-10"
+              className="grid min-w-0 gap-6 border-b border-neutral-200 py-8 dark:border-neutral-800 sm:grid-cols-[180px_minmax(0,1fr)] sm:gap-10 sm:py-10"
             >
-              <div className="text-sm leading-6 text-neutral-500 dark:text-neutral-400">
-                <p className="font-medium text-neutral-700 dark:text-neutral-300">
+              <div className="min-w-0 text-sm leading-6 text-neutral-500 dark:text-neutral-400">
+                <p className="break-words font-medium text-neutral-700 [overflow-wrap:anywhere] dark:text-neutral-300">
                   {training.provider}
                 </p>
-                <p className="mt-1">{training.period}</p>
+
+                <p className="mt-1">
+                  {training.period}
+                </p>
+
                 {training.duration ? (
-                  <p className="mt-1">{training.duration}</p>
+                  <p className="mt-1">
+                    {training.duration}
+                  </p>
                 ) : null}
               </div>
 
-              <div className="max-w-3xl">
-                <h3 className="text-xl font-semibold tracking-tight sm:text-2xl">
+              <div className="min-w-0 max-w-3xl">
+                <h3 className="break-words text-xl font-semibold tracking-tight [overflow-wrap:anywhere] sm:text-2xl">
                   {training.title}
                 </h3>
 
-                <p className="mt-4 leading-7 text-neutral-600 dark:text-neutral-400">
+                <p className="mt-4 break-words leading-7 text-neutral-600 [overflow-wrap:anywhere] dark:text-neutral-400">
                   {training.summary}
                 </p>
 
-                <p className="mt-4 text-sm leading-6 text-neutral-500 dark:text-neutral-500">
+                <p className="mt-4 break-words text-sm leading-6 text-neutral-500 [overflow-wrap:anywhere] dark:text-neutral-500">
                   {training.topics.join(" · ")}
                 </p>
 
@@ -62,7 +68,11 @@ export function TrainingSection() {
                     className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-neutral-700 transition-colors hover:text-neutral-950 dark:text-neutral-300 dark:hover:text-white"
                   >
                     View credential
-                    <ArrowUpRight aria-hidden="true" className="h-4 w-4" />
+
+                    <ArrowUpRight
+                      aria-hidden="true"
+                      className="h-4 w-4 shrink-0"
+                    />
                   </a>
                 ) : null}
               </div>

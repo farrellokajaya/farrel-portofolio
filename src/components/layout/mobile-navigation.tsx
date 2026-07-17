@@ -11,7 +11,6 @@ import { useActiveSection } from "@/hooks/use-active-section";
 export function MobileNavigation() {
   const navigationId = useId();
   const activeSection = useActiveSection();
-
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -50,7 +49,7 @@ export function MobileNavigation() {
   };
 
   return (
-    <div className="lg:hidden">
+    <div className="xl:hidden">
       <button
         type="button"
         onClick={() => setIsOpen(true)}
@@ -67,7 +66,7 @@ export function MobileNavigation() {
       </button>
 
       {isOpen ? (
-        <div className="fixed inset-0 z-[100] lg:hidden">
+        <div className="fixed inset-0 z-[100] xl:hidden">
           <button
             type="button"
             onClick={closeNavigation}
@@ -83,13 +82,13 @@ export function MobileNavigation() {
             className="absolute inset-y-0 right-0 z-10 flex h-dvh w-full flex-col overflow-hidden border-l border-border bg-background shadow-2xl sm:max-w-sm"
           >
             <div className="flex h-16 shrink-0 items-center justify-between border-b border-border px-5">
-              <div>
+              <div className="min-w-0">
                 <p className="text-sm font-semibold text-foreground">
                   Navigation
                 </p>
 
-                <p className="text-xs text-muted-foreground">
-                  Farrel Lokajaya
+                <p className="truncate text-xs text-muted-foreground">
+                  {siteConfig.name}
                 </p>
               </div>
 
@@ -98,7 +97,7 @@ export function MobileNavigation() {
                 onClick={closeNavigation}
                 aria-label="Close navigation menu"
                 autoFocus
-                className="inline-flex size-10 items-center justify-center rounded-full border border-border bg-surface text-foreground transition-colors hover:bg-surface-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                className="inline-flex size-10 shrink-0 items-center justify-center rounded-full border border-border bg-surface text-foreground transition-colors hover:bg-surface-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
               >
                 <X
                   className="size-5"
@@ -140,7 +139,7 @@ export function MobileNavigation() {
 
                         {isActive ? (
                           <span
-                            className="size-2 rounded-full bg-current"
+                            className="size-2 shrink-0 rounded-full bg-current"
                             aria-hidden="true"
                           />
                         ) : null}
@@ -156,13 +155,14 @@ export function MobileNavigation() {
                 href={siteConfig.cvUrl}
                 download
                 onClick={closeNavigation}
-                className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-accent px-5 text-sm font-semibold text-accent-foreground transition-colors hover:bg-accent-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-neutral-900 px-5 text-sm font-semibold text-white transition-colors hover:bg-neutral-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-white dark:text-neutral-950 dark:hover:bg-neutral-200"
               >
                 <Download
-                  className="size-4"
+                  className="size-4 shrink-0"
                   aria-hidden="true"
                 />
-                Download CV
+
+                <span>Download CV</span>
               </a>
             </div>
           </div>

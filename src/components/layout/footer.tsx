@@ -27,8 +27,8 @@ export function Footer() {
 
   return (
     <footer className="border-t border-neutral-200 bg-white text-neutral-950 dark:border-neutral-800 dark:bg-neutral-950 dark:text-white">
-      <div className="mx-auto flex max-w-6xl flex-col gap-6 px-5 py-8 sm:px-8 md:flex-row md:items-center md:justify-between lg:px-10">
-        <div>
+      <div className="mx-auto flex max-w-6xl flex-col gap-6 px-5 py-8 sm:px-8 lg:flex-row lg:items-center lg:justify-between lg:px-10">
+        <div className="min-w-0">
           <Link
             href="/#home"
             className="text-sm font-semibold tracking-tight text-neutral-900 dark:text-white"
@@ -36,13 +36,12 @@ export function Footer() {
             {siteConfig.name}
           </Link>
 
-          <p className="mt-1 text-sm text-neutral-500 dark:text-neutral-400">
-            © {currentYear} {siteConfig.name}. All
-            rights reserved.
+          <p className="mt-1 break-words text-sm text-neutral-500 [overflow-wrap:anywhere] dark:text-neutral-400">
+            © {currentYear} {siteConfig.name}. All rights reserved.
           </p>
         </div>
 
-        <div className="flex items-center gap-5 text-sm text-neutral-500 dark:text-neutral-400">
+        <div className="flex min-w-0 flex-wrap items-center gap-x-5 gap-y-3 text-sm text-neutral-500 dark:text-neutral-400">
           {footerSocialLinks.map((socialLink) => {
             const Icon = socialLink.icon;
 
@@ -65,14 +64,14 @@ export function Footer() {
 
           <a
             href={`mailto:${siteConfig.email}`}
-            className="transition-colors hover:text-neutral-950 dark:hover:text-white"
+            className="whitespace-nowrap transition-colors hover:text-neutral-950 dark:hover:text-white"
           >
             Email
           </a>
 
           <Link
             href="/#home"
-            className="transition-colors hover:text-neutral-950 dark:hover:text-white"
+            className="whitespace-nowrap transition-colors hover:text-neutral-950 dark:hover:text-white"
           >
             Back to top
           </Link>

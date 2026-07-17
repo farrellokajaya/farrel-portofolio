@@ -10,7 +10,7 @@ export function DesktopNavigation() {
 
   return (
     <nav
-      className="hidden lg:block"
+      className="hidden xl:block"
       aria-label="Primary navigation"
     >
       <ul className="flex items-center gap-1">
@@ -26,7 +26,7 @@ export function DesktopNavigation() {
                   isActive ? "location" : undefined
                 }
                 className={[
-                  "inline-flex min-h-10 items-center rounded-full px-4 text-sm font-medium transition-colors",
+                  "inline-flex min-h-10 items-center whitespace-nowrap rounded-full px-3 text-sm font-medium transition-colors 2xl:px-4",
                   "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent",
                   isActive
                     ? "bg-surface text-foreground"

@@ -7,7 +7,6 @@ export function ExperienceSection() {
       className="scroll-mt-24 border-b border-neutral-200 bg-neutral-50 text-neutral-950 dark:border-neutral-800 dark:bg-neutral-900/30 dark:text-white"
     >
       <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24 lg:px-10">
-        {/* Section heading */}
         <div className="max-w-2xl">
           <p className="text-sm font-medium uppercase tracking-[0.16em] text-neutral-500 dark:text-neutral-400">
             Experience
@@ -23,33 +22,34 @@ export function ExperienceSection() {
           </p>
         </div>
 
-        {/* Experience list */}
         <div className="mt-12 border-t border-neutral-200 dark:border-neutral-800">
           {experienceItems.map((experience) => (
             <article
               key={`${experience.organization}-${experience.role}`}
-              className="grid gap-6 border-b border-neutral-200 py-8 dark:border-neutral-800 sm:grid-cols-[180px_minmax(0,1fr)] sm:gap-10 sm:py-10"
+              className="grid min-w-0 gap-6 border-b border-neutral-200 py-8 dark:border-neutral-800 sm:grid-cols-[180px_minmax(0,1fr)] sm:gap-10 sm:py-10"
             >
-              {/* Experience metadata */}
-              <div className="text-sm leading-6 text-neutral-500 dark:text-neutral-400">
-                <p>{experience.type}</p>
+              <div className="min-w-0 text-sm leading-6 text-neutral-500 dark:text-neutral-400">
+                <p className="break-words [overflow-wrap:anywhere]">
+                  {experience.type}
+                </p>
 
                 {experience.period ? (
-                  <p className="mt-1">{experience.period}</p>
+                  <p className="mt-1">
+                    {experience.period}
+                  </p>
                 ) : null}
               </div>
 
-              {/* Experience description */}
-              <div className="max-w-3xl">
-                <h3 className="text-xl font-semibold tracking-tight sm:text-2xl">
+              <div className="min-w-0 max-w-3xl">
+                <h3 className="break-words text-xl font-semibold tracking-tight [overflow-wrap:anywhere] sm:text-2xl">
                   {experience.role}
                 </h3>
 
-                <p className="mt-1 text-base font-medium text-neutral-700 dark:text-neutral-300">
+                <p className="mt-1 break-words text-base font-medium text-neutral-700 [overflow-wrap:anywhere] dark:text-neutral-300">
                   {experience.organization}
                 </p>
 
-                <p className="mt-4 leading-7 text-neutral-600 dark:text-neutral-400">
+                <p className="mt-4 break-words leading-7 text-neutral-600 [overflow-wrap:anywhere] dark:text-neutral-400">
                   {experience.summary}
                 </p>
 
@@ -57,16 +57,16 @@ export function ExperienceSection() {
                   {experience.highlights.map((highlight) => (
                     <li
                       key={highlight}
-                      className="grid grid-cols-[16px_minmax(0,1fr)] gap-2"
+                      className="grid min-w-0 grid-cols-[8px_minmax(0,1fr)] gap-3"
                     >
                       <span
                         aria-hidden="true"
-                        className="text-neutral-400 dark:text-neutral-600"
-                      >
-                        —
-                      </span>
+                        className="mt-[0.7rem] size-1.5 rounded-full bg-neutral-400 dark:bg-neutral-600"
+                      />
 
-                      <span>{highlight}</span>
+                      <span className="min-w-0 break-words [overflow-wrap:anywhere]">
+                        {highlight}
+                      </span>
                     </li>
                   ))}
                 </ul>
