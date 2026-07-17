@@ -7,7 +7,7 @@ import {
   type NavigationSectionId,
 } from "@/data/navigation";
 
-const NAVBAR_OFFSET = 96;
+const SECTION_ACTIVATION_OFFSET = 112;
 const PAGE_BOTTOM_TOLERANCE = 2;
 
 const navigationSectionIds = navigationItems.map(
@@ -54,7 +54,7 @@ export function useActiveSection(): NavigationSectionId {
       animationFrameId = null;
 
       const scrollPosition =
-        window.scrollY + NAVBAR_OFFSET;
+        window.scrollY + SECTION_ACTIVATION_OFFSET;
 
       const hasReachedPageBottom =
         window.innerHeight + window.scrollY >=
@@ -111,6 +111,8 @@ export function useActiveSection(): NavigationSectionId {
       if (sectionFromHash) {
         setActiveSection(sectionFromHash);
       }
+
+      scheduleActiveSectionUpdate();
     };
 
     updateActiveSectionFromHash();
