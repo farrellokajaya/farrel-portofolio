@@ -10,6 +10,11 @@ export const navigationItems = [
     sectionId: "about",
   },
   {
+    label: "Education",
+    href: "/#education",
+    sectionId: "education",
+  },
+  {
     label: "Projects",
     href: "/#projects",
     sectionId: "projects",

@@ -5,7 +5,22 @@ import {
   FaLinkedinIn,
 } from "react-icons/fa6";
 
-import { siteConfig } from "@/data/site-config"; 
+import { siteConfig } from "@/data/site-config";
+
+const footerSocialLinks = [
+  {
+    ...siteConfig.socialLinks.github,
+    icon: FaGithub,
+  },
+  {
+    ...siteConfig.socialLinks.linkedin,
+    icon: FaLinkedinIn,
+  },
+  {
+    ...siteConfig.socialLinks.instagram,
+    icon: FaInstagram,
+  },
+] as const;
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -15,47 +30,38 @@ export function Footer() {
       <div className="mx-auto flex max-w-6xl flex-col gap-6 px-5 py-8 sm:px-8 md:flex-row md:items-center md:justify-between lg:px-10">
         <div>
           <Link
-            href="/"
+            href="/#home"
             className="text-sm font-semibold tracking-tight text-neutral-900 dark:text-white"
           >
-            Farrel Lokajaya
+            {siteConfig.name}
           </Link>
 
           <p className="mt-1 text-sm text-neutral-500 dark:text-neutral-400">
-            © {currentYear} Farrel Lokajaya. All rights reserved.
+            © {currentYear} {siteConfig.name}. All
+            rights reserved.
           </p>
         </div>
 
         <div className="flex items-center gap-5 text-sm text-neutral-500 dark:text-neutral-400">
-          <a
-            href={siteConfig.githubUrl}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="GitHub"
-            className="transition-colors hover:text-neutral-950 dark:hover:text-white"
-          >
-            <FaGithub aria-hidden="true" className="h-5 w-5" />
-          </a>
+          {footerSocialLinks.map((socialLink) => {
+            const Icon = socialLink.icon;
 
-          <a
-            href={siteConfig.linkedinUrl}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="LinkedIn"
-            className="transition-colors hover:text-neutral-950 dark:hover:text-white"
-          >
-            <FaLinkedinIn aria-hidden="true" className="h-5 w-5" />
-          </a>
-
-          <a
-            href={`https://www.instagram.com/${siteConfig.instagramHandle}`}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Instagram"
-            className="transition-colors hover:text-neutral-950 dark:hover:text-white"
-          >
-            <FaInstagram aria-hidden="true" className="h-5 w-5" />
-          </a>
+            return (
+              <a
+                key={socialLink.label}
+                href={socialLink.href}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={socialLink.label}
+                className="transition-colors hover:text-neutral-950 dark:hover:text-white"
+              >
+                <Icon
+                  aria-hidden="true"
+                  className="h-5 w-5"
+                />
+              </a>
+            );
+          })}
 
           <a
             href={`mailto:${siteConfig.email}`}

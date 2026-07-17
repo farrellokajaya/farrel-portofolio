@@ -16,26 +16,24 @@ type SocialLink = {
 
 const socialLinks: SocialLink[] = [
   {
-    label: "GitHub",
-    href: siteConfig.githubUrl,
+    label: siteConfig.socialLinks.github.label,
+    href: siteConfig.socialLinks.github.href,
     icon: Code,
     external: true,
   },
   {
-    label: "LinkedIn",
-    href: siteConfig.linkedinUrl,
+    label: siteConfig.socialLinks.linkedin.label,
+    href: siteConfig.socialLinks.linkedin.href,
     icon: BriefcaseBusiness,
     external: true,
   },
   {
     label: "Email",
-    href: siteConfig.email
-      ? `mailto:${siteConfig.email}`
-      : "",
+    href: `mailto:${siteConfig.email}`,
     icon: Mail,
     external: false,
   },
-].filter((item) => item.href.length > 0);
+];
 
 type SocialLinksProps = Readonly<{
   showLabels?: boolean;
@@ -44,10 +42,6 @@ type SocialLinksProps = Readonly<{
 export function SocialLinks({
   showLabels = false,
 }: SocialLinksProps) {
-  if (socialLinks.length === 0) {
-    return null;
-  }
-
   return (
     <ul
       className="flex flex-wrap items-center gap-2"
@@ -60,8 +54,14 @@ export function SocialLinks({
           <li key={item.label}>
             <a
               href={item.href}
-              target={item.external ? "_blank" : undefined}
-              rel={item.external ? "noreferrer" : undefined}
+              target={
+                item.external ? "_blank" : undefined
+              }
+              rel={
+                item.external
+                  ? "noreferrer"
+                  : undefined
+              }
               aria-label={item.label}
               title={item.label}
               className={[
