@@ -7,6 +7,9 @@ import {
   type NavigationSectionId,
 } from "@/data/navigation";
 
+const NAVBAR_OFFSET = 96;
+const PAGE_BOTTOM_TOLERANCE = 2;
+
 const navigationSectionIds = navigationItems.map(
   (item) => item.sectionId,
 );
@@ -17,6 +20,14 @@ function isNavigationSectionId(
   return navigationSectionIds.some(
     (sectionId) => sectionId === value,
   );
+}
+
+function getSectionFromHash(): NavigationSectionId | null {
+  const sectionId = window.location.hash.slice(1);
+
+  return isNavigationSectionId(sectionId)
+    ? sectionId
+    : null;
 }
 
 export function useActiveSection(): NavigationSectionId {
@@ -37,75 +48,119 @@ export function useActiveSection(): NavigationSectionId {
       return;
     }
 
-    const visibleSections = new Map<
-      string,
-      IntersectionObserverEntry
-    >();
+    let animationFrameId: number | null = null;
+
+    const updateActiveSection = () => {
+      animationFrameId = null;
+
+      const scrollPosition =
+        window.scrollY + NAVBAR_OFFSET;
+
+      const hasReachedPageBottom =
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight -
+          PAGE_BOTTOM_TOLERANCE;
+
+      if (hasReachedPageBottom) {
+        const lastSection = sections.at(-1);
+
+        if (
+          lastSection &&
+          isNavigationSectionId(lastSection.id)
+        ) {
+          setActiveSection(lastSection.id);
+        }
+
+        return;
+      }
+
+      let currentSection: NavigationSectionId =
+        "home";
+
+      for (const section of sections) {
+        const sectionTop =
+          section.getBoundingClientRect().top +
+          window.scrollY;
+
+        if (sectionTop > scrollPosition) {
+          break;
+        }
+
+        if (isNavigationSectionId(section.id)) {
+          currentSection = section.id;
+        }
+      }
+
+      setActiveSection(currentSection);
+    };
+
+    const scheduleActiveSectionUpdate = () => {
+      if (animationFrameId !== null) {
+        return;
+      }
+
+      animationFrameId =
+        window.requestAnimationFrame(
+          updateActiveSection,
+        );
+    };
 
     const updateActiveSectionFromHash = () => {
-      const sectionId = window.location.hash.slice(1);
+      const sectionFromHash = getSectionFromHash();
 
-      if (isNavigationSectionId(sectionId)) {
-        setActiveSection(sectionId);
+      if (sectionFromHash) {
+        setActiveSection(sectionFromHash);
       }
     };
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            visibleSections.set(
-              entry.target.id,
-              entry,
-            );
-          } else {
-            visibleSections.delete(entry.target.id);
-          }
-        });
+    updateActiveSectionFromHash();
+    scheduleActiveSectionUpdate();
 
-        const closestSection = [
-          ...visibleSections.values(),
-        ].sort(
-          (firstEntry, secondEntry) =>
-            Math.abs(
-              firstEntry.boundingClientRect.top - 80,
-            ) -
-            Math.abs(
-              secondEntry.boundingClientRect.top - 80,
-            ),
-        )[0];
-
-        if (
-          closestSection &&
-          isNavigationSectionId(
-            closestSection.target.id,
-          )
-        ) {
-          setActiveSection(closestSection.target.id);
-        }
-      },
-      {
-        rootMargin: "-80px 0px -65% 0px",
-        threshold: [0, 0.1, 0.25],
-      },
+    window.addEventListener(
+      "scroll",
+      scheduleActiveSectionUpdate,
+      { passive: true },
     );
 
-    sections.forEach((section) => {
-      observer.observe(section);
-    });
-
-    updateActiveSectionFromHash();
+    window.addEventListener(
+      "resize",
+      scheduleActiveSectionUpdate,
+    );
 
     window.addEventListener(
       "hashchange",
       updateActiveSectionFromHash,
     );
 
+    window.addEventListener(
+      "popstate",
+      updateActiveSectionFromHash,
+    );
+
     return () => {
-      observer.disconnect();
+      if (animationFrameId !== null) {
+        window.cancelAnimationFrame(
+          animationFrameId,
+        );
+      }
+
+      window.removeEventListener(
+        "scroll",
+        scheduleActiveSectionUpdate,
+      );
+
+      window.removeEventListener(
+        "resize",
+        scheduleActiveSectionUpdate,
+      );
 
       window.removeEventListener(
         "hashchange",
+        updateActiveSectionFromHash,
+      );
+
+      window.removeEventListener(
+        "popstate",
         updateActiveSectionFromHash,
       );
     };
