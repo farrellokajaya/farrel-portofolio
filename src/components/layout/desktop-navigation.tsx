@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import { navigationItems } from "@/data/navigation";
 import { useActiveSection } from "@/hooks/use-active-section";
+import { handleSameSectionNavigation } from "@/lib/section-navigation";
 
 export function DesktopNavigation() {
   const activeSection = useActiveSection();
@@ -22,8 +23,16 @@ export function DesktopNavigation() {
             <li key={item.sectionId}>
               <Link
                 href={item.href}
+                onClick={(event) => {
+                  handleSameSectionNavigation(
+                    event,
+                    item.sectionId,
+                  );
+                }}
                 aria-current={
-                  isActive ? "location" : undefined
+                  isActive
+                    ? "location"
+                    : undefined
                 }
                 className={[
                   "inline-flex min-h-10 items-center whitespace-nowrap rounded-full px-3 text-sm font-medium transition-colors 2xl:px-4",

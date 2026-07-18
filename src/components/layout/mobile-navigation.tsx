@@ -1,12 +1,21 @@
 "use client";
 
-import { useEffect, useId, useState } from "react";
+import {
+  useEffect,
+  useId,
+  useState,
+} from "react";
 import Link from "next/link";
-import { Download, Menu, X } from "lucide-react";
+import {
+  Download,
+  Menu,
+  X,
+} from "lucide-react";
 
 import { navigationItems } from "@/data/navigation";
 import { siteConfig } from "@/data/site-config";
 import { useActiveSection } from "@/hooks/use-active-section";
+import { handleSameSectionNavigation } from "@/lib/section-navigation";
 
 export function MobileNavigation() {
   const navigationId = useId();
@@ -21,13 +30,16 @@ export function MobileNavigation() {
     const previousOverflow =
       document.body.style.overflow;
 
-    const handleKeyDown = (event: KeyboardEvent) => {
+    const handleKeyDown = (
+      event: KeyboardEvent,
+    ) => {
       if (event.key === "Escape") {
         setIsOpen(false);
       }
     };
 
     document.body.style.overflow = "hidden";
+
     document.addEventListener(
       "keydown",
       handleKeyDown,
@@ -121,7 +133,14 @@ export function MobileNavigation() {
                     <li key={item.sectionId}>
                       <Link
                         href={item.href}
-                        onClick={closeNavigation}
+                        onClick={(event) => {
+                          closeNavigation();
+
+                          handleSameSectionNavigation(
+                            event,
+                            item.sectionId,
+                          );
+                        }}
                         aria-current={
                           isActive
                             ? "location"
