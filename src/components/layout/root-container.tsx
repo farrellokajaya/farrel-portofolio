@@ -8,7 +8,7 @@ export function RootContainer({
   className = "",
 }: RootContainerProps) {
   const containerClassName = [
-    "mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8",
+    "mx-auto w-full max-w-6xl px-5 sm:px-8 lg:px-10",
     className,
   ]
     .filter(Boolean)

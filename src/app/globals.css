@@ -11,12 +11,22 @@
 
   --surface: #f7f7f8;
   --surface-hover: #eeeeef;
+  --section-muted: #fafafa;
 
   --border: #e4e4e7;
+  --border-strong: #d4d4d8;
 
   --accent: #2563eb;
   --accent-hover: #1d4ed8;
   --accent-foreground: #ffffff;
+  --focus-ring: #2563eb;
+
+  --control-radius: 0.75rem;
+  --panel-radius: 1rem;
+
+  --soft-shadow:
+    0 1px 2px rgb(0 0 0 / 0.04),
+    0 8px 24px rgb(0 0 0 / 0.06);
 
   --font-sans-stack:
     system-ui,
@@ -37,27 +47,48 @@
 
   --surface: #18181b;
   --surface-hover: #27272a;
+  --section-muted: #111113;
 
   --border: #2f2f33;
+  --border-strong: #3f3f46;
 
   --accent: #60a5fa;
   --accent-hover: #93c5fd;
   --accent-foreground: #0a0a0a;
+  --focus-ring: #60a5fa;
+
+  --soft-shadow:
+    0 1px 2px rgb(0 0 0 / 0.24),
+    0 8px 24px rgb(0 0 0 / 0.28);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-muted-foreground: var(--muted-foreground);
+  --color-muted-foreground:
+    var(--muted-foreground);
 
   --color-surface: var(--surface);
-  --color-surface-hover: var(--surface-hover);
+  --color-surface-hover:
+    var(--surface-hover);
+  --color-section-muted:
+    var(--section-muted);
 
   --color-border: var(--border);
+  --color-border-strong:
+    var(--border-strong);
 
   --color-accent: var(--accent);
-  --color-accent-hover: var(--accent-hover);
-  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-hover:
+    var(--accent-hover);
+  --color-accent-foreground:
+    var(--accent-foreground);
+  --color-focus-ring: var(--focus-ring);
+
+  --radius-control: var(--control-radius);
+  --radius-panel: var(--panel-radius);
+
+  --shadow-soft: var(--soft-shadow);
 
   --font-sans: var(--font-sans-stack);
 }
@@ -118,7 +149,7 @@ svg {
 }
 
 :focus-visible {
-  outline-color: var(--accent);
+  outline-color: var(--focus-ring);
 }
 
 .theme-icon-light {
