@@ -1,8 +1,12 @@
 import { ArrowUpRight } from "lucide-react";
 
-import { HomeSection, SectionHeading } from "@/components/home/section-layout";
-import { trainingItems } from "@/data/training";
+import { ContentRow } from "@/components/home/content-row";
+import {
+  HomeSection,
+  SectionHeading,
+} from "@/components/home/section-layout";
 import { actionLinkClassName } from "@/components/ui/link-styles";
+import { trainingItems } from "@/data/training";
 
 export function TrainingSection() {
   return (
@@ -13,54 +17,56 @@ export function TrainingSection() {
         description="Courses and focused learning programs that strengthen my skills in software development, data, artificial intelligence, and professional readiness."
       />
 
-     <div className="mt-10 border-t border-border sm:mt-12">
+      <div className="mt-10 border-t border-border sm:mt-12">
         {trainingItems.map((training) => (
-          <article
+          <ContentRow
             key={`${training.provider}-${training.title}`}
-            className="grid min-w-0 gap-6 border-b border-neutral-200 py-8 dark:border-neutral-800 sm:grid-cols-[180px_minmax(0,1fr)] sm:gap-10 sm:py-10"
+            aside={
+              <>
+                <p className="break-words font-medium text-foreground/80 [overflow-wrap:anywhere]">
+                  {training.provider}
+                </p>
+
+                <p className="mt-1">
+                  {training.period}
+                </p>
+
+                {training.duration ? (
+                  <p className="mt-1">
+                    {training.duration}
+                  </p>
+                ) : null}
+              </>
+            }
           >
-            <div className="min-w-0 text-sm leading-6 text-neutral-500 dark:text-neutral-400">
-              <p className="break-words font-medium text-neutral-700 [overflow-wrap:anywhere] dark:text-neutral-300">
-                {training.provider}
-              </p>
+            <h3 className="break-words text-xl font-semibold tracking-tight [overflow-wrap:anywhere] sm:text-2xl">
+              {training.title}
+            </h3>
 
-              <p className="mt-1">{training.period}</p>
+            <p className="mt-3 break-words leading-7 text-muted-foreground [overflow-wrap:anywhere]">
+              {training.summary}
+            </p>
 
-              {training.duration ? (
-                <p className="mt-1">{training.duration}</p>
-              ) : null}
-            </div>
+            <p className="mt-4 break-words text-sm leading-6 text-muted-foreground/80 [overflow-wrap:anywhere]">
+              {training.topics.join(" · ")}
+            </p>
 
-            <div className="min-w-0 max-w-3xl">
-              <h3 className="break-words text-xl font-semibold tracking-tight [overflow-wrap:anywhere] sm:text-2xl">
-                {training.title}
-              </h3>
+            {training.credentialUrl ? (
+              <a
+                href={training.credentialUrl}
+                target="_blank"
+                rel="noreferrer"
+                className={`mt-5 ${actionLinkClassName}`}
+              >
+                View credential
 
-              <p className="mt-4 break-words leading-7 text-neutral-600 [overflow-wrap:anywhere] dark:text-neutral-400">
-                {training.summary}
-              </p>
-
-              <p className="mt-4 break-words text-sm leading-6 text-neutral-500 [overflow-wrap:anywhere] dark:text-neutral-500">
-                {training.topics.join(" · ")}
-              </p>
-
-              {training.credentialUrl ? (
-                <a
-                  href={training.credentialUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className={`mt-5 ${actionLinkClassName}`}
-                >
-                  View credential
-
-                  <ArrowUpRight
-                    aria-hidden="true"
-                    className="h-4 w-4 shrink-0"
-                  />
-                </a>
-              ) : null}
-            </div>
-          </article>
+                <ArrowUpRight
+                  aria-hidden="true"
+                  className="h-4 w-4 shrink-0"
+                />
+              </a>
+            ) : null}
+          </ContentRow>
         ))}
       </div>
     </HomeSection>
