@@ -14,7 +14,7 @@ export function ProjectsSection() {
         description="A selection of projects that reflect my experience in web development and building practical digital products."
       />
 
-      <div className="mt-12 border-t border-neutral-200 dark:border-neutral-800">
+      <div className="mt-10 border-t border-border sm:mt-12">
         {featuredProjects.map((project, index) => (
           <article
             key={project.title}

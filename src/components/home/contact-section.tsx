@@ -5,7 +5,11 @@ import {
   FaLinkedinIn,
 } from "react-icons/fa6";
 
-import { HomeSection } from "@/components/home/section-layout";
+import {
+  HomeSection,
+  SectionHeading,
+} from "@/components/home/section-layout";
+
 import { profileContent } from "@/data/profile";
 import { siteConfig } from "@/data/site-config";
 import { getButtonLinkClassName } from "@/components/ui/link-styles";
@@ -45,19 +49,15 @@ export function ContactSection() {
       tone="muted"
       withBorder={false}
     >
-      <div className="grid min-w-0 gap-12 xl:grid-cols-[minmax(0,1fr)_minmax(320px,0.75fr)] xl:gap-20">
+      <div className="grid min-w-0 gap-10 sm:gap-12 xl:grid-cols-[minmax(0,1fr)_minmax(320px,0.75fr)] xl:gap-20">
         <div className="min-w-0 max-w-2xl">
-          <p className="text-sm font-medium uppercase tracking-[0.16em] text-neutral-500 dark:text-neutral-400">
-            Contact
-          </p>
-
-          <h2 className="mt-3 break-words text-3xl font-semibold tracking-tight [overflow-wrap:anywhere] sm:text-4xl">
-            {profileContent.contactTitle}
-          </h2>
-
-          <p className="mt-5 max-w-xl break-words text-base leading-8 text-neutral-600 [overflow-wrap:anywhere] dark:text-neutral-400 sm:text-lg">
-            {profileContent.contactDescription}
-          </p>
+          <SectionHeading
+            eyebrow="Contact"
+            title={profileContent.contactTitle}
+            description={
+              profileContent.contactDescription
+            }
+          />
 
           <a
             href={`mailto:${siteConfig.email}`}

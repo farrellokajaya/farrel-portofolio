@@ -10,7 +10,7 @@ export function SkillsSection() {
         description="Tools and technologies I have used across academic, internship, and personal projects."
       />
 
-      <dl className="mt-12 border-t border-neutral-200 dark:border-neutral-800">
+      <dl className="mt-10 border-t border-border sm:mt-12">
         {skillGroups.map((group) => (
           <div
             key={group.category}

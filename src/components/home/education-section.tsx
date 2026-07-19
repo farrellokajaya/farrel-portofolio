@@ -10,7 +10,7 @@ export function EducationSection() {
         description="Formal education that established my foundation in software development, data, and computing."
       />
 
-      <div className="mt-12 border-t border-neutral-200 dark:border-neutral-800">
+      <div className="mt-10 border-t border-border sm:mt-12">
         {educationItems.map((education) => (
           <article
             key={`${education.institution}-${education.degree}`}

@@ -10,7 +10,7 @@ export function ExperienceSection() {
         description="Practical experience that has shaped how I approach development, collaboration, and problem-solving."
       />
 
-      <div className="mt-12 border-t border-neutral-200 dark:border-neutral-800">
+      <div className="mt-10 border-t border-border sm:mt-12">
         {experienceItems.map((experience) => (
           <article
             key={`${experience.organization}-${experience.role}`}

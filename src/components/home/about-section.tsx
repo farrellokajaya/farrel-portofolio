@@ -12,7 +12,7 @@ export function AboutSection() {
         title={profileContent.aboutTitle}
       />
 
-      <div className="mt-10 grid items-start gap-8 sm:grid-cols-[160px_minmax(0,1fr)] sm:gap-10 lg:grid-cols-[180px_minmax(0,1fr)] lg:gap-14">
+      <div className="mt-10 grid items-start gap-8 sm:mt-12 sm:grid-cols-[160px_minmax(0,1fr)] sm:gap-10 lg:grid-cols-[180px_minmax(0,1fr)] lg:gap-14">
         <div className="mx-auto sm:mx-0">
           <Image
             src={siteConfig.profileImage.src}

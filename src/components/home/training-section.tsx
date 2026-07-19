@@ -13,7 +13,7 @@ export function TrainingSection() {
         description="Courses and focused learning programs that strengthen my skills in software development, data, artificial intelligence, and professional readiness."
       />
 
-      <div className="mt-12 border-t border-neutral-200 dark:border-neutral-800">
+     <div className="mt-10 border-t border-border sm:mt-12">
         {trainingItems.map((training) => (
           <article
             key={`${training.provider}-${training.title}`}

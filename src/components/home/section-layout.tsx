@@ -33,7 +33,7 @@ export function HomeSection({
       id={id}
       className={sectionClassName}
     >
-      <RootContainer className="py-20 sm:py-24">
+      <RootContainer className="py-16 sm:py-20 lg:py-24">
         {children}
       </RootContainer>
     </section>
@@ -57,12 +57,12 @@ export function SectionHeading({
         {eyebrow}
       </p>
 
-      <h2 className="mt-3 break-words text-3xl font-semibold tracking-tight [overflow-wrap:anywhere] sm:text-4xl">
+      <h2 className="mt-3 break-words text-balance text-3xl font-semibold tracking-tight [overflow-wrap:anywhere] sm:text-4xl">
         {title}
       </h2>
 
       {description ? (
-        <p className="mt-4 break-words leading-7 text-muted-foreground [overflow-wrap:anywhere]">
+        <p className="mt-4 max-w-xl break-words text-pretty text-base leading-7 text-muted-foreground [overflow-wrap:anywhere]">
           {description}
         </p>
       ) : null}
