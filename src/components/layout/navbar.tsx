@@ -6,6 +6,7 @@ import { MobileNavigation } from "@/components/layout/mobile-navigation";
 import { RootContainer } from "@/components/layout/root-container";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { siteConfig } from "@/data/site-config";
+import { getButtonLinkClassName } from "@/components/ui/link-styles";
 
 export function Navbar() {
   return (
@@ -41,11 +42,16 @@ export function Navbar() {
 
           <div className="flex shrink-0 items-center gap-2">
             <ThemeToggle />
-
             <a
               href={siteConfig.cvUrl}
               download
-              className="hidden min-h-10 items-center justify-center gap-2 whitespace-nowrap rounded-full bg-neutral-900 px-4 text-sm font-semibold text-white transition-colors hover:bg-neutral-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 sm:inline-flex dark:bg-white dark:text-neutral-950 dark:hover:bg-neutral-200"
+              className={`hidden whitespace-nowrap sm:inline-flex ${getButtonLinkClassName(
+                {
+                  radius: "full",
+                  size: "sm",
+                  variant: "primary",
+                },
+              )}`}
             >
               <Download
                 className="size-4 shrink-0"

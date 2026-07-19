@@ -2,6 +2,7 @@ import { ArrowUpRight } from "lucide-react";
 
 import { HomeSection, SectionHeading } from "@/components/home/section-layout";
 import { trainingItems } from "@/data/training";
+import { actionLinkClassName } from "@/components/ui/link-styles";
 
 export function TrainingSection() {
   return (
@@ -48,7 +49,7 @@ export function TrainingSection() {
                   href={training.credentialUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-neutral-700 transition-colors hover:text-neutral-950 dark:text-neutral-300 dark:hover:text-white"
+                  className={`mt-5 ${actionLinkClassName}`}
                 >
                   View credential
 

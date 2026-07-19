@@ -11,9 +11,8 @@ import {
 
 import { profileContent } from "@/data/profile";
 import { siteConfig } from "@/data/site-config";
+import { getButtonLinkClassName } from "@/components/ui/link-styles";
 
-const actionButtonClass =
-  "inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-neutral-300 px-5 py-3 text-sm font-medium text-neutral-900 transition-colors hover:border-neutral-400 hover:bg-neutral-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-500 focus-visible:ring-offset-2 dark:border-neutral-700 dark:text-white dark:hover:border-neutral-600 dark:hover:bg-neutral-900 dark:focus-visible:ring-offset-neutral-950";
 
 const heroSocialLinks = [
   {
@@ -64,7 +63,9 @@ export function HeroSection() {
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <Link
               href="#projects"
-              className={actionButtonClass}
+              className={getButtonLinkClassName({
+                variant: "secondary",
+              })}
             >
               <span>View Projects</span>
 
@@ -77,7 +78,9 @@ export function HeroSection() {
             <a
               href={siteConfig.cvUrl}
               download
-              className={actionButtonClass}
+              className={getButtonLinkClassName({
+                variant: "secondary",
+              })}
             >
               <Download
                 aria-hidden="true"

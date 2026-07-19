@@ -3,6 +3,7 @@ import { FaGithub } from "react-icons/fa6";
 
 import { HomeSection, SectionHeading } from "@/components/home/section-layout";
 import { featuredProjects } from "@/data/projects";
+import { actionLinkClassName } from "@/components/ui/link-styles";
 
 export function ProjectsSection() {
   return (
@@ -57,7 +58,7 @@ export function ProjectsSection() {
                   href={project.liveUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 whitespace-nowrap text-sm font-medium text-neutral-700 transition-colors hover:text-neutral-950 dark:text-neutral-300 dark:hover:text-white"
+                  className={`whitespace-nowrap ${actionLinkClassName}`}
                 >
                   Live site
 
@@ -73,7 +74,7 @@ export function ProjectsSection() {
                   href={project.githubUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 whitespace-nowrap text-sm font-medium text-neutral-700 transition-colors hover:text-neutral-950 dark:text-neutral-300 dark:hover:text-white"
+                  className={`whitespace-nowrap ${actionLinkClassName}`}
                 >
                   GitHub
 

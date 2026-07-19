@@ -16,6 +16,7 @@ import { navigationItems } from "@/data/navigation";
 import { siteConfig } from "@/data/site-config";
 import { useActiveSection } from "@/hooks/use-active-section";
 import { handleSameSectionNavigation } from "@/lib/section-navigation";
+import { getButtonLinkClassName } from "@/components/ui/link-styles";
 
 export function MobileNavigation() {
   const navigationId = useId();
@@ -174,7 +175,10 @@ export function MobileNavigation() {
                 href={siteConfig.cvUrl}
                 download
                 onClick={closeNavigation}
-                className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-neutral-900 px-5 text-sm font-semibold text-white transition-colors hover:bg-neutral-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-white dark:text-neutral-950 dark:hover:bg-neutral-200"
+                className={getButtonLinkClassName({
+                  fullWidth: true,
+                  variant: "primary",
+                })}
               >
                 <Download
                   className="size-4 shrink-0"
