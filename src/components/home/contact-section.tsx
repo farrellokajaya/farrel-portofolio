@@ -1,4 +1,8 @@
-import { ArrowUpRight, Mail, MapPin } from "lucide-react";
+import {
+  ArrowUpRight,
+  Mail,
+  MapPin,
+} from "lucide-react";
 import {
   FaGithub,
   FaInstagram,
@@ -9,10 +13,9 @@ import {
   HomeSection,
   SectionHeading,
 } from "@/components/home/section-layout";
-
+import { getButtonLinkClassName } from "@/components/ui/link-styles";
 import { profileContent } from "@/data/profile";
 import { siteConfig } from "@/data/site-config";
-import { getButtonLinkClassName } from "@/components/ui/link-styles";
 
 const contactLinks = [
   {
@@ -24,19 +27,22 @@ const contactLinks = [
   },
   {
     ...siteConfig.socialLinks.linkedin,
-    value: siteConfig.socialLinks.linkedin.displayValue,
+    value:
+      siteConfig.socialLinks.linkedin.displayValue,
     icon: FaLinkedinIn,
     external: true,
   },
   {
     ...siteConfig.socialLinks.github,
-    value: siteConfig.socialLinks.github.displayValue,
+    value:
+      siteConfig.socialLinks.github.displayValue,
     icon: FaGithub,
     external: true,
   },
   {
     ...siteConfig.socialLinks.instagram,
-    value: siteConfig.socialLinks.instagram.displayValue,
+    value:
+      siteConfig.socialLinks.instagram.displayValue,
     icon: FaInstagram,
     external: true,
   },
@@ -61,9 +67,11 @@ export function ContactSection() {
 
           <a
             href={`mailto:${siteConfig.email}`}
-            className={`mt-8 ${getButtonLinkClassName({
-              variant: "secondary",
-            })}`}
+            className={`mt-8 ${getButtonLinkClassName(
+              {
+                variant: "secondary",
+              },
+            )}`}
           >
             <Mail
               aria-hidden="true"
@@ -75,7 +83,7 @@ export function ContactSection() {
         </div>
 
         <div className="min-w-0">
-          <div className="border-t border-neutral-200 dark:border-neutral-800">
+          <div className="border-t border-border">
             {contactLinks.map((contact) => {
               const Icon = contact.icon;
 
@@ -90,23 +98,23 @@ export function ContactSection() {
                   }
                   rel={
                     contact.external
-                      ? "noreferrer"
+                      ? "noopener noreferrer"
                       : undefined
                   }
-                  className="group flex min-w-0 items-start justify-between gap-4 border-b border-neutral-200 py-5 dark:border-neutral-800"
+                  className="group flex min-w-0 items-start justify-between gap-4 border-b border-border py-5 transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-focus-ring"
                 >
                   <div className="flex min-w-0 flex-1 items-start gap-4">
                     <Icon
                       aria-hidden="true"
-                      className="mt-1 h-5 w-5 shrink-0 text-neutral-500 dark:text-neutral-400"
+                      className="mt-1 h-5 w-5 shrink-0 text-muted-foreground transition-colors group-hover:text-foreground"
                     />
 
                     <div className="min-w-0 flex-1">
-                      <p className="text-sm text-neutral-500 dark:text-neutral-400">
+                      <p className="text-sm text-muted-foreground">
                         {contact.label}
                       </p>
 
-                      <p className="mt-1 break-words text-sm font-medium leading-6 text-neutral-900 [overflow-wrap:anywhere] dark:text-neutral-200 sm:text-base">
+                      <p className="mt-1 break-words text-sm font-medium leading-6 text-foreground [overflow-wrap:anywhere] sm:text-base">
                         {contact.value}
                       </p>
                     </div>
@@ -114,14 +122,14 @@ export function ContactSection() {
 
                   <ArrowUpRight
                     aria-hidden="true"
-                    className="mt-1 h-4 w-4 shrink-0 text-neutral-400 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 dark:text-neutral-600"
+                    className="mt-1 h-4 w-4 shrink-0 text-muted-foreground/60 transition-[color,transform] group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground"
                   />
                 </a>
               );
             })}
           </div>
 
-          <div className="mt-6 flex min-w-0 items-start gap-2 text-sm text-neutral-500 dark:text-neutral-400">
+          <div className="mt-6 flex min-w-0 items-start gap-2 text-sm text-muted-foreground">
             <MapPin
               aria-hidden="true"
               className="mt-0.5 h-4 w-4 shrink-0"

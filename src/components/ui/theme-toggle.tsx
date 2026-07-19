@@ -1,6 +1,9 @@
 "use client";
 
-import { Moon, Sun } from "lucide-react";
+import {
+  Moon,
+  Sun,
+} from "lucide-react";
 import { useTheme } from "next-themes";
 
 export function ThemeToggle() {
@@ -8,9 +11,15 @@ export function ThemeToggle() {
 
   const handleThemeChange = () => {
     const isDarkMode =
-      document.documentElement.classList.contains("dark");
+      document.documentElement.classList.contains(
+        "dark",
+      );
 
-    setTheme(isDarkMode ? "light" : "dark");
+    setTheme(
+      isDarkMode
+        ? "light"
+        : "dark",
+    );
   };
 
   return (
@@ -19,7 +28,7 @@ export function ThemeToggle() {
       onClick={handleThemeChange}
       aria-label="Toggle color theme"
       title="Toggle color theme"
-      className="inline-flex size-10 items-center justify-center rounded-full border border-border bg-surface text-foreground transition-colors hover:bg-surface-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+      className="inline-flex size-10 items-center justify-center rounded-full border border-border-strong bg-background text-foreground transition-colors hover:bg-surface focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus-ring"
     >
       <span
         className="theme-icon-light"

@@ -5,6 +5,8 @@ import {
   FaLinkedinIn,
 } from "react-icons/fa6";
 
+import { RootContainer } from "@/components/layout/root-container";
+import { actionLinkClassName } from "@/components/ui/link-styles";
 import { siteConfig } from "@/data/site-config";
 
 const footerSocialLinks = [
@@ -26,57 +28,55 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-neutral-200 bg-white text-neutral-950 dark:border-neutral-800 dark:bg-neutral-950 dark:text-white">
-      <div className="mx-auto flex max-w-6xl flex-col gap-6 px-5 py-8 sm:px-8 lg:flex-row lg:items-center lg:justify-between lg:px-10">
+    <footer className="border-t border-border bg-background text-foreground">
+      <RootContainer className="flex flex-col gap-6 py-8 lg:flex-row lg:items-center lg:justify-between">
         <div className="min-w-0">
           <Link
             href="/#home"
-            className="text-sm font-semibold tracking-tight text-neutral-900 dark:text-white"
+            className="inline-flex rounded-control text-sm font-semibold tracking-tight text-foreground transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-focus-ring"
           >
             {siteConfig.name}
           </Link>
 
-          <p className="mt-1 break-words text-sm text-neutral-500 [overflow-wrap:anywhere] dark:text-neutral-400">
-            © {currentYear} {siteConfig.name}. All rights reserved.
+          <p className="mt-1 break-words text-sm text-muted-foreground [overflow-wrap:anywhere]">
+            © {currentYear} {siteConfig.name}. All
+            rights reserved.
           </p>
         </div>
 
-        <div className="flex min-w-0 flex-wrap items-center gap-x-5 gap-y-3 text-sm text-neutral-500 dark:text-neutral-400">
-          {footerSocialLinks.map((socialLink) => {
-            const Icon = socialLink.icon;
+        <div className="flex min-w-0 flex-wrap items-center gap-1 text-muted-foreground">
+          {footerSocialLinks.map(
+            (socialLink) => {
+              const Icon =
+                socialLink.icon;
 
-            return (
-              <a
-                key={socialLink.label}
-                href={socialLink.href}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={socialLink.label}
-                className="transition-colors hover:text-neutral-950 dark:hover:text-white"
-              >
-                <Icon
-                  aria-hidden="true"
-                  className="h-5 w-5"
-                />
-              </a>
-            );
-          })}
+              return (
+                <a
+                  key={socialLink.label}
+                  href={socialLink.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${socialLink.label} profile`}
+                  title={socialLink.label}
+                  className="inline-flex size-10 items-center justify-center rounded-control transition-colors hover:bg-surface hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus-ring"
+                >
+                  <Icon
+                    aria-hidden="true"
+                    className="h-5 w-5"
+                  />
+                </a>
+              );
+            },
+          )}
 
           <a
             href={`mailto:${siteConfig.email}`}
-            className="whitespace-nowrap transition-colors hover:text-neutral-950 dark:hover:text-white"
+            className={actionLinkClassName}
           >
             Email
           </a>
-
-          <Link
-            href="/#home"
-            className="whitespace-nowrap transition-colors hover:text-neutral-950 dark:hover:text-white"
-          >
-            Back to top
-          </Link>
         </div>
-      </div>
+      </RootContainer>
     </footer>
   );
 }
