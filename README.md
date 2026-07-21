@@ -141,7 +141,7 @@ Changes pushed to the production branch are automatically deployed through the c
 
 - **LinkedIn:** [Farrel Lokajaya](https://www.linkedin.com/in/farrel-lokajaya-a25944203/)
 - **GitHub:** [farrellokajaya](https://github.com/farrellokajaya)
-- **Portfolio:** [farrel-portofolio-liard.vercel.app](https://farrel-portofolio-liard.vercel.app/)
+- **Portofolio:** [farrel-portofolio-liard.vercel.app](https://farrel-portofolio-liard.vercel.app/)
 
 ## Project Status
 
